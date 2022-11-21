@@ -1,0 +1,97 @@
+\ProvidesPackage{pre}[2022/11/21 v0.01 General preamble for LuaLaTeX]
+% в \documentclass[]{} :
+% В необязательном аргументе twocolumn для набора в две колонки
+% В необязательном аргументе landscape для альбомной ориентации
+% В необязательном аргументе fleqn для выравнивания выключных формул по левому краю
+
+
+
+%%% Include etoolbox and luacode for various tools used throughout the preamble
+% \ReqirePackage{etoolbox, luacode}
+
+
+%%% Mathematics
+\RequirePackage{amsmath, amsthm, amssymb, amsfonts} % ams
+\RequirePackage{esint} % special integrals
+\RequirePackage[subnum, casesstyle]{cases} % adequate cases
+\RequirePackage{icomma} % intellectual comma
+\RequirePackage{unicode-math} % don't think that it's actually necessary thing
+\RequirePackage{mathrsfs} % special math font
+
+
+
+%%% Font and misc
+\RequirePackage{fontspec}
+\setmainfont[Ligatures=TeX, SlantedFont=CMU Serif Roman Slanted]{CMU Serif}
+\setsansfont[Ligatures=TeX]{CMU Sans Serif}
+\setmonofont[Ligatures=TeX]{CMU Typewriter Text}
+
+\RequirePackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+\RequirePackage{hyphenat} % super-hyphenation
+
+\RequirePackage[usenames, dvipsnames, svgnames, table, rgb]{xcolor} % color
+
+\RequirePackage{soul}
+
+\RequirePackage{extsizes}
+
+
+
+
+%%% Working with images
+\RequirePackage{graphicx}                                       % Для вставки рисунков
+\graphicspath{{images/}{images2/}}                          % папки с картинками
+\setlength\fboxsep{3pt}                                     % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt}                                    % Толщина линий рамки \fbox{}
+\RequirePackage{wrapfig}                                        % Обтекание рисунков текстом
+\RequirePackage{caption}                                        % дополнительные инструменты для оформления подписей
+\RequirePackage{subcaption}
+
+
+%%% Working with tables
+\RequirePackage{array, tabularx, tabulary, booktabs}               % Дополнительная работа с таблицами
+\RequirePackage{longtable}                                      % Длинные таблицы
+\RequirePackage{multirow}                                       % Слияние строк в таблице
+
+
+
+%%% Color
+\RequirePackage{extsizes}                                       % Возможность сделать 14-й шрифт
+\RequirePackage[top = 3cm, left = 2cm, right = 2cm, bottom = 3cm]{geometry}                         % геометрия документа (обязательно после extsizes)
+
+
+%%% Колонтитулы
+%\RequirePackage{fancyhdr}
+%\renewcommand{\footrulewidth}{\headrulewidth}               % Эта команда создаёт нижнюю линию (для общности)
+%\renewcommand{\headrulewidth}{0mm}                         % Эта команда уберёт верхнюю линию
+%\renewcommand{\footrulewidth}{0mm}                         % Эта команда, соответственно, уберёт нижнюю линию
+                    % Все эти команды можно использовать непосредственно в тексте документа
+%\pagestyle{fancy}
+%\lfoot{Нижний левый}
+%\rfoot{Нижний правый}
+%\lhead{Верхний левый}
+%\chead{Верхний центральный}
+%\rhead{Верхний правый}
+%\cfoot{Нижний в центре}    % По умолчанию здесь номер страницы
+
+
+
+
+%%% Гиперссылки (говно-зависимости, может не работать)
+\RequirePackage{hyperref}
+\definecolor{blackref}{rgb}{0.5,0,0.5}
+\hypersetup{                                                % Гиперссылки
+    unicode=true,                                           % русские буквы в раздела PDF
+    pdftitle={Отчёт о научно-исследовательской работе студента},                                   % Заголовок
+    pdfauthor={Широков Денис Дмитриевич},                                      % Автор
+    pdfsubject={Численные методы решения задач математической физики с использованием локально-адаптивных сеток},                                      % Тема
+    colorlinks=true,                                        % false: ссылки в рамках; true: цветные ссылки
+    linkcolor=black,                                          % внутренние ссылки
+    citecolor=black,                                        % на библиографию
+    filecolor=black,                                      % на файлы
+    urlcolor=black                                           % на URL
+}
+\RequirePackage{bookmark}
